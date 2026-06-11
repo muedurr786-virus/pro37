@@ -1,0 +1,36 @@
+{% extends "base/base.html" %}
+
+{% block cao %}
+
+
+<form class="container" action="" method="post">
+    {% csrf_token %}
+
+    {{form.as_p}}
+
+    <button type="submit">submit</button>
+</form>
+
+<hr>
+
+<table>
+    <thead>
+        <tr>
+            <th>name</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for d in dept %}
+        <tr>
+            <td>{{d.name}}</td>
+            <td><a href="{% url "departmentedit" d.id %}"></a></td>
+            
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+
+{% endblock cao %}
